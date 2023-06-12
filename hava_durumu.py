@@ -56,15 +56,17 @@ def mgm(il, ilce=""):
     sicaklik = jsonData['sicaklik']
     hadisekodu = jsonData['hadiseKodu']
     #yagis =str(float(jsonData['yagis6Saat']))[2:]
-    olcumZamanı = jsonData["veriZamani"][11:16]
+    olcumZamani = jsonData["veriZamani"][11:16]
+    nemOrani = jsonData["nem"]
 
     try:
         hadise = hadiseler[hadisekodu]
     except:
         hadise = ""
     return f"""MGM(Meteroloji Genel Müdürlüğü)ne göre:{sehir},{ilce}
-Ölçüm saati={olcumZamanı}
-Sıcaklık={sicaklik}°C 
+Ölçüm saati={olcumZamani}
+Nem Oranı={nemOrani}%
+Sıcaklık={sicaklik}°C
 {hadise}"""
 
 #GOOGLE VERILERINE GORE
