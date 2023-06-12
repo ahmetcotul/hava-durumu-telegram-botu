@@ -1,13 +1,16 @@
 # hava-durumu-telegram-botu
 Simple weather project for web scraping using requests and beautiful soup via python-telegram-bot
 
+**!!! IMPORTANT **: This project was made for Türkiye and its cities. You must make changes to the code to apply to your own country
+
+
 
 # Index
 0. [https://t.me/ExampleMyWeatherBot](https://t.me/ExampleMyWeatherBot )
 1. [Installation](#installation)
 2. [Setup](#setup)
 3. [Purpose](#project-purpose)
-
+4. [Mistakes](#mistakes)
 
 ## Installation
 ilk önce bağımlı kütüphaneleri yüklüyoruz.
@@ -43,4 +46,6 @@ Kısaca Amacı:
 2. Il bilgilerini alınca ilçeler listesini getirecek telegrambot - inline keyboards  ile 
 3. Il ve ilçe parametreleri sonucunda hava durumunu döndürecek ve ne zaman **"\sondurum"** komutu yazarsa hava durumunu getirecek olay bu
 
+## Mistakes
+1. Bazen google sıcaklığı kelvin cinsinden alabiliyor. Bu nedenle duruma göre değişiklik yapabilirsiniz bkz. kelvin-celcius dönüştürme
 
