@@ -1,8 +1,6 @@
 # hava-durumu-telegram-botu
 Simple weather project for web scraping using requests and beautiful soup via python-telegram-bot
 
-[![Ekran Resmi](./video.mp4)](./video.mp4)
-
 
 # Index
 0. [https://t.me/ExampleMyWeatherBot](https://t.me/ExampleMyWeatherBot )
