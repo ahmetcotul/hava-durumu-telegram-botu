@@ -69,13 +69,19 @@ Sıcaklık={sicaklik}°C
 
 #GOOGLE VERILERINE GORE
 def google_veri(user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",il="",ilce=""):
-    response_google= connectly.get_legacy_session().get(f"https://www.google.com/search?q={il}+{ilce}+hava+durumu+",headers={'user-agent':user_agent},verify=True)
+    response_google= connectly.get_legacy_session().get(f"https://www.google.com/search?q={il}+{ilce}+hava+durumu+",headers={'user-agent':user_agent,'Accept-Language': 'tr-TR,tr;q=0.8,en-US;q=0.5,en;q=0.3',},verify=True)
     parser = BeautifulSoup(response_google.text,"html.parser")
     durum = parser.find("span", {"id": "wob_dc"})
-    weather = parser.find("span",{"class":"wob_t q8U8x"})
+    weather = parser.find("span",{"class":"wob_t q8U8x"}).text
+    #eger cevirmeye gerekli olursa
+    #weather = parser.find("span",{"class":"wob_t q8U8x"}).text
+    #weather = (int(weather) -32 ) * 5.0/9.0
+    #weather = round(weather,1)
+    zaman = parser.find("div",{"class":"wob_dts"})
     yagis_ihtimali = parser.find("span", {"id": "wob_pp"})
     return f"""\n
 Google weather.com verilerine göre:{il.capitalize()},{ilce.capitalize()}
-Sıcaklık={weather.text}°C
+Ölçüm zamanı={zaman.text}
+Sıcaklık={weather}°C
 Yağış İhtimali={yagis_ihtimali.text}
 {durum.text}"""
